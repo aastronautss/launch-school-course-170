@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>File Directory</title>
+  </head>
+
+  <body>
+    <ul>
+      <% @files.each do |file| %>
+        <% filename = file[/public\/(.*)/, 1] %>
+        <li>
+          <a href="<%= filename %>">
+            <%= filename %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+
+    <p>
+      <% if @desc %>
+        <a href="/">Sort ascending</a>
+      <% else %>
+        <a href="/?sort=desc">Sort descending</a>
+      <% end %>
+    </p>
+  </body>
+</html>
